@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>【⬜未完成】exam_YYMMDD_nn · 模板</title>
+  <!--
+    排版参考模板（片段复制进 exam_YYMMDD_nn.md 正文，勿生成 exam_*.html）
+    规则：../.cursorrules §5.2 · 答题卡 §5.2.1 · 操作：组卷打印说明.md
+    新英语卷 / math_selective：同一 md 含「题 · 卡 · 答案」三节（md_to_exam_pdf.py 导出 PDF 时分页）
+
+    贴图规则（细则见 .cursorrules，此处摘要）：
+    - 原题：仅「无图无法审题」时保留 ../../assets/images/xxx.png（卷子在 未完成/ 或 已完成/）
+    - 变式：需新几何结构时用内嵌 SVG（见 _snippets/），勿贴教辅截图
+    - 纯文字题：只写 <p>，不加 <img>
+  -->
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 24mm 16mm;
+      @bottom-center {
+        content: "第 " counter(page) " 页 / 共 " counter(pages) " 页";
+        font-size: 9pt;
+        color: #666;
+      }
+    }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 11pt; line-height: 1.55; color: #111;
+    }
+    h1 { font-size: 16pt; border-bottom: 2px solid #333; padding-bottom: 6px; margin-top: 0; }
+    h2 { font-size: 13pt; margin-top: 1.2em; page-break-after: avoid; }
+    h2.exam-part { page-break-before: always; border-bottom: 1px solid #999; padding-bottom: 4px; }
+    h2.exam-part:first-of-type { page-break-before: auto; }
+    blockquote {
+      background: #f6f8fa; border-left: 4px solid #4a90d9;
+      margin: 0.8em 0; padding: 8px 12px; font-size: 10pt;
+    }
+    h2 + blockquote { page-break-inside: avoid; }
+    h2:has(+ blockquote) + blockquote + h3,
+    h2 + blockquote + h3 { font-size: 11.5pt; margin-top: 0.9em; }
+    hr { border: none; border-top: 1px dashed #ccc; margin: 1.2em 0; }
+    img {
+      max-width: 100%; max-height: 260px; display: block; margin: 10px auto;
+      object-fit: contain;
+    }
+    figure.geom { margin: 10px auto 14px; text-align: center; page-break-inside: avoid; }
+    figure.geom svg { display: block; margin: 0 auto; max-width: 220px; height: auto; }
+    table { border-collapse: collapse; width: 100%; font-size: 10pt; }
+    th, td { border: 1px solid #ccc; padding: 6px 8px; }
+    table.sheet { table-layout: fixed; }
+    table.sheet th, table.sheet td { padding: 12px 10px; vertical-align: middle; }
+    table.sheet .sheet-mc {
+      display: inline-block; min-width: 3.2em; border-bottom: 1px solid #333;
+      text-align: center; margin-right: 1em; vertical-align: bottom;
+    }
+    table.sheet .sheet-opt {
+      display: inline-block; min-width: 2.4em; margin-right: 1.6em; text-align: center;
+    }
+    table.sheet .blank-line {
+      display: block; border-bottom: 1px solid #333; min-height: 1.75em;
+      margin: 6px 0; width: 100%;
+    }
+.q-num { font-weight: 700; }
+    .answer-box {
+      min-height: 90px; border: 1px dashed #999; margin: 10px 0;
+      padding: 8px; background: #fafafa;
+    }
+    .variant-label { margin-top: 0.6em; }
+    .tag-review { font-size: 9pt; color: #b06000; margin-left: 4px; }
+    .answer-key-section { background: #f9f9f9; padding: 8px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>萌萌 数学 复习卷 (ID: YYMMDDnn)</h1>
+  <!-- PDF 生成时自动在 h1 右侧注入 组卷日期：yyyy年m月d日 -->
+
+  <!-- 数学 · 本卷含 M1/很不懂题时插入（见根目录 [概念热身]）；无则整段省略；不写引导 blockquote -->
+  <h2>概念热身</h2>
+  <h3>互素（也叫互质）</h3>
+  <ul>
+    <li><strong>意思</strong>：两个数除了 1 以外，没有共同的因数。</li>
+    <li><strong>怎么判</strong>：看两个数有没有除 1 以外的相同因数；或算最大公因数是不是 1。</li>
+    <li><strong>例子</strong>：3 和 8 → 互素。2 和 12 → 不互素（都有 2）。</li>
+    <li><strong>别和「素数」搞混</strong>：素数说的是一个数；互素说的是两个数之间的关系。</li>
+  </ul>
+  <hr>
+
+  <!-- 英语 · answer_sheet_mode；含 mastery1/E1 题时在「第一部分」前插入；不写引导 blockquote -->
+
+  <!-- ========== 第一部分 · 题目（数学 / 英语）========== -->
+  <h2 class="exam-part">第一部分 · 题目</h2>
+
+  <!-- 数学 · answer_sheet_mode: math · 题卷只印题干，不写答题区；按 qtype 排序同类型相邻 -->
+  <p>1、下列说法中，正确的有（ ）… A.1个 B.2个 C.3个 D.4个</p>
+  <p>1.1、判断对错：0.6 能被 0.2 整除。（　）</p>
+  <hr>
+  <p>3、…不能化成有限小数的分数是 ______ 。</p>
+  <p>3.1、…</p>
+  <hr>
+  <p>7、计算：1+4又1/6+…</p>
+  <p>7.1、…</p>
+  <hr>
+
+  <!-- 英语示例 -->
+
+  <p>1、______ (final) , Kitty and her classmates finished the poster.</p>
+  <p>1.1、______ (actual) , we need more time.</p>
+  <hr>
+
+  <p>2、〔复检〕……题干……</p>
+  <p>2.1、……变式题干……</p>
+  <hr>
+
+  <!-- 数学 legacy 模式：保留 answer-box；math_selective 且 sheet:false 时仍用 -->
+
+  <!-- ========== 第二部分 · 答题卡 ========== -->
+  <h2 class="exam-part">第二部分 · 答题卡</h2>
+  <table class="sheet">
+    <thead>
+      <tr>
+        <th style="width:56px;text-align:center;">题号</th>
+        <th>主题</th>
+        <th>变式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;">1</td>
+        <td class="sheet-answer"><span class="blank-short"></span></td>
+        <td class="sheet-answer"><span class="blank-short"></span></td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">2<br><span class="tag-review">〔复检〕</span></td>
+        <td class="sheet-answer"><span class="blank-short"></span></td>
+        <td class="sheet-answer"><span class="blank-line"></span></td>
+      </tr>
+      <!-- 追加行… -->
+    </tbody>
+  </table>
+
+  <!-- ========== 第三部分 · 标准答案（勿给孩子） ========== -->
+  <h2 class="exam-part answer-key-section">第三部分 · 标准答案</h2>
+  <table>
+    <thead>
+      <tr><th style="text-align:center;">题号</th><th>主题</th><th>变式 1.1</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="text-align:center;">1</td><td>Finally</td><td>Actually</td></tr>
+      <tr><td style="text-align:center;">2</td><td>D</td><td>A</td></tr>
+    </tbody>
+  </table>
+
+  <h2>附：题库映射（批改用）</h2>
+  <table>
+    <thead>
+      <tr><th style="text-align:center;">题号</th><th>数据库 ID</th><th>槽位</th><th>错题文件</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;">1</td>
+        <td>ENG-YYYYMMDD-NN</td>
+        <td>在练</td>
+        <td><code>eng_YYYYMMDD_NN_考点.md</code></td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">2</td>
+        <td>MATH-YYYYMMDD-NN</td>
+        <td>review</td>
+        <td><code>…</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

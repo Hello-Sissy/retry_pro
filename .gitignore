@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.pytest_cache/
+.cursor/
+*.html
+!萌萌错题记录/02_自定义组卷/_exam_template.html
+!萌萌错题记录/02_自定义组卷/_snippets/*.html
+
+# 本地生成物（仓库只保留 md 源稿；PDF 各机器自行生成）
+萌萌错题记录/02_自定义组卷/**/*.pdf
+
+# 勿纳入模板的冗余归档（若从完整工作区误拷）
+萌萌错题记录/05_已做的组卷/
+萌萌错题记录/错题原题/

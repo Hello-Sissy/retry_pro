@@ -1,0 +1,23 @@
+<!-- 变式 1.1：大正方形 10cm，小正方形 6cm 嵌于大正方形一角，求 △ADF -->
+<!-- 用法：复制 <figure> 整块到 exam_*.html 的变式题干下方 -->
+<figure class="geom" aria-label="大正方形内嵌小正方形，求三角形 ADF 面积">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 130" width="200" height="186" role="img">
+    <!-- 大正方形 10cm → 100×100，原点左上，1单位=1px，边长100 -->
+    <rect x="20" y="15" width="100" height="100" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <!-- 小正方形 6cm 嵌于左下角，与 A 共角 -->
+    <rect x="20" y="55" width="60" height="60" fill="#eef3f8" stroke="#333" stroke-width="1.5"/>
+    <!-- △ADF -->
+    <polygon points="20,115 120,115 80,55" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <!-- 顶点 -->
+    <circle cx="20" cy="115" r="2.5" fill="#c0392b"/>
+    <circle cx="120" cy="115" r="2.5" fill="#c0392b"/>
+    <circle cx="80" cy="55" r="2.5" fill="#c0392b"/>
+    <text x="8" y="118" font-size="11" font-family="PingFang SC, sans-serif" fill="#c0392b">A</text>
+    <text x="122" y="118" font-size="11" font-family="PingFang SC, sans-serif" fill="#c0392b">D</text>
+    <text x="82" y="50" font-size="11" font-family="PingFang SC, sans-serif" fill="#c0392b">F</text>
+    <!-- 边长标注 -->
+    <text x="55" y="12" font-size="10" font-family="PingFang SC, sans-serif" fill="#555">10 cm</text>
+    <text x="2" y="88" font-size="10" font-family="PingFang SC, sans-serif" fill="#555">6 cm</text>
+  </svg>
+  <figcaption style="font-size:9.5pt;color:#666;margin-top:4px;">图：小正方形嵌于大正方形左下角（A 为共顶点），求 △ADF 面积</figcaption>
+</figure>
