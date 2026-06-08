@@ -1,6 +1,8 @@
-# MistakeMaster · 智能错题管理中台（模板）
+# MistakeMaster · 智能错题管理中台（模板 v3.1）
 
 Markdown 错题库 + Cursor AI 规则 + Python 出卷 PDF。
+
+**v3.1 要点**：掌握度四档 · 数学变式引擎 · 概念热身（数学/英语）· 深度分析 · 英语 `qtype` · `03_英语默写` 四表。
 
 **同事请先读 → [同事上手.md](./同事上手.md)**
 

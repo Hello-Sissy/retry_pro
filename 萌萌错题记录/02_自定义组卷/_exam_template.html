@@ -48,7 +48,19 @@
     table { border-collapse: collapse; width: 100%; font-size: 10pt; }
     th, td { border: 1px solid #ccc; padding: 6px 8px; }
     table.sheet { table-layout: fixed; }
-    table.sheet th, table.sheet td { padding: 12px 10px; vertical-align: middle; }
+    table.sheet th, table.sheet td { padding: 5px 8px; vertical-align: middle; }
+    table.sheet td.sheet-answer { min-height: auto; }
+    table.sheet .sheet-compact { line-height: 1.35; }
+    table.sheet .q-sub { font-size: 9pt; color: #555; margin-right: 0.12em; }
+    table.sheet .sheet-compact .q-sub + .q-sub { margin-left: 0.65em; }
+    table.sheet .blank-short {
+      display: inline-block; width: 2.4em; border-bottom: 1px solid #333;
+      min-height: 1.05em; vertical-align: bottom; margin-right: 0.25em;
+    }
+    table.sheet .blank-mid {
+      display: inline-block; width: 5.5em; border-bottom: 1px solid #333;
+      min-height: 1.05em; vertical-align: bottom; margin-right: 0.35em;
+    }
     table.sheet .sheet-mc {
       display: inline-block; min-width: 3.2em; border-bottom: 1px solid #333;
       text-align: center; margin-right: 1em; vertical-align: bottom;
@@ -57,8 +69,8 @@
       display: inline-block; min-width: 2.4em; margin-right: 1.6em; text-align: center;
     }
     table.sheet .blank-line {
-      display: block; border-bottom: 1px solid #333; min-height: 1.75em;
-      margin: 6px 0; width: 100%;
+      display: block; border-bottom: 1px solid #333; min-height: 1.2em;
+      margin: 3px 0; width: 100%;
     }
 .q-num { font-weight: 700; }
     .answer-box {
@@ -119,23 +131,20 @@
   <table class="sheet">
     <thead>
       <tr>
-        <th style="width:56px;text-align:center;">题号</th>
-        <th>主题</th>
-        <th>变式</th>
+        <th style="width:44px;text-align:center;">题号</th>
+        <th>答案</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td style="text-align:center;">1</td>
-        <td class="sheet-answer"><span class="blank-short"></span></td>
-        <td class="sheet-answer"><span class="blank-short"></span></td>
+        <td class="sheet-answer sheet-compact"><span class="q-sub">1</span><span class="blank-short"></span><span class="q-sub">1.1</span><span class="blank-short"></span><span class="q-sub">1.2</span><span class="blank-short"></span></td>
       </tr>
       <tr>
         <td style="text-align:center;">2<br><span class="tag-review">〔复检〕</span></td>
-        <td class="sheet-answer"><span class="blank-short"></span></td>
-        <td class="sheet-answer"><span class="blank-line"></span></td>
+        <td class="sheet-answer sheet-compact"><span class="q-sub">2</span><span class="blank-short"></span></td>
       </tr>
-      <!-- 追加行… -->
+      <!-- 填空题同行示例：4 / 4.1 / 4.2 用 blank-mid -->
     </tbody>
   </table>
 
@@ -143,11 +152,11 @@
   <h2 class="exam-part answer-key-section">第三部分 · 标准答案</h2>
   <table>
     <thead>
-      <tr><th style="text-align:center;">题号</th><th>主题</th><th>变式 1.1</th></tr>
+      <tr><th style="text-align:center;">题号</th><th>答案</th></tr>
     </thead>
     <tbody>
-      <tr><td style="text-align:center;">1</td><td>Finally</td><td>Actually</td></tr>
-      <tr><td style="text-align:center;">2</td><td>D</td><td>A</td></tr>
+      <tr><td style="text-align:center;">1</td><td>1 Finally · 1.1 Actually</td></tr>
+      <tr><td style="text-align:center;">2</td><td>2 D · 2.1 A</td></tr>
     </tbody>
   </table>
 

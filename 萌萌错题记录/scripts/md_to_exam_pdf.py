@@ -74,19 +74,32 @@ div[style*="dashed"] {
 .exam-status--pending { background: #fef7e0; color: #b06000; border: 1px solid #f9ab00; }
 h2.exam-part { page-break-before: always; }
 .tag-review { font-size: 9pt; color: #b06000; }
-/* 英语答题卡：加宽选择括号与选项间距、加长填空线 */
+/* 答题卡：紧凑行高；主题+变式（1.1/1.2）同一行并排 */
 table.sheet { table-layout: fixed; }
-table.sheet th, table.sheet td { padding: 12px 10px; vertical-align: middle; }
-table.sheet td.sheet-answer { min-height: 2.2em; vertical-align: middle; }
-/* 选择/判断：仅短横线，不印 ABCD 或「对/错」 */
+table.sheet th, table.sheet td { padding: 5px 8px; vertical-align: middle; }
+table.sheet td.sheet-answer { min-height: auto; vertical-align: middle; }
+table.sheet .sheet-compact { line-height: 1.35; }
+table.sheet .q-sub {
+  font-size: 9pt; color: #555; margin-right: 0.12em; white-space: nowrap;
+}
+table.sheet .sheet-compact .q-sub + .q-sub { margin-left: 0.65em; }
+/* 选择/判断：短横线，不印 ABCD */
 table.sheet .blank-short {
-  display: inline-block; width: 3.5em; border-bottom: 1px solid #333;
-  min-height: 1.4em; vertical-align: bottom;
+  display: inline-block; width: 2.4em; border-bottom: 1px solid #333;
+  min-height: 1.05em; vertical-align: bottom; margin-right: 0.25em;
 }
+/* 填空：行内中等宽度横线（与 1.1/1.2 同排） */
+table.sheet .blank-mid {
+  display: inline-block; width: 5.5em; border-bottom: 1px solid #333;
+  min-height: 1.05em; vertical-align: bottom; margin-right: 0.35em;
+}
+/* legacy：整行填空（数学应用题等仍可用） */
 table.sheet .blank-line {
-  display: block; border-bottom: 1px solid #333; min-height: 1.75em;
-  margin: 6px 0; width: 100%;
+  display: block; border-bottom: 1px solid #333; min-height: 1.2em;
+  margin: 3px 0; width: 100%;
 }
+/* 标准答案表：与答题卡同风格紧凑 */
+table:not(.sheet) th, table:not(.sheet) td { padding: 4px 8px; }
 /* 英语 legacy：仍可用 sheet-mc / sheet-opt（数学 math 模式改用 blank-short） */
 table.sheet .sheet-mc {
   display: inline-block; min-width: 3.2em; border-bottom: 1px solid #333;
