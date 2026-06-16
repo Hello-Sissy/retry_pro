@@ -13,6 +13,6 @@ Markdown 错题库 + Cursor AI 规则 + Python 出卷 PDF。
 | `萌萌错题记录/错题整理架构.md` | 模块码、错因码、标签字典 |
 
 ```bash
-git clone https://gitee.com/sissy-chen/MistakeMaster.git
+git clone https://github.com/Hello-Sissy/retry_pro.git
 # 用 Cursor 打开克隆后的 MistakeMaster 文件夹（根目录）
 ```
