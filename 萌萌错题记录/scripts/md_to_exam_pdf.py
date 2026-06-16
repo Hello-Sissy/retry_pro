@@ -127,14 +127,27 @@ h2 + blockquote + h3 { margin-top: 0.2em; }
   padding: 0 0.25em; line-height: 1.15;
 }
 .math-frac .den { display: block; padding: 0 0.25em; line-height: 1.15; }
-.q-num { font-weight: 700; }
+.q-num { font-weight: 800; }
 /* 题卷概要/填空横线（避免 Markdown 吞掉 ______） */
 span.q-blank {
   display: inline-block; min-width: 5em; height: 1.1em;
   border-bottom: 1px solid #333; vertical-align: baseline;
   margin: 0 0.15em;
 }
+/* 数学题 · 题干 + 题下虚线答题区 */
+.q-item { margin: 0 0 18px; page-break-inside: avoid; }
+.q-item > p { margin: 0 0 8px; line-height: 1.55; }
+.q-calc {
+  border: 1px dashed #666; background: transparent;
+  min-height: 100px; margin: 0; padding: 0;
+}
+.q-calc.short { min-height: 88px; }
+.q-calc.mid { min-height: 112px; }
+.q-calc.tall { min-height: 168px; }
 """
+
+def build_print_css(_math_inline: bool = False) -> str:
+    return PRINT_CSS
 
 
 def parse_frontmatter_title(text: str) -> str | None:
@@ -166,7 +179,7 @@ def resolve_exam_date_iso(full_text: str, md_path: str) -> str | None:
     if iso:
         return iso.strip().strip('"').strip("'")
     stem = os.path.splitext(os.path.basename(md_path))[0]
-    m = re.match(r"^(?:exam|dictation)_(\d{2})(\d{2})(\d{2})_\d+$", stem)
+    m = re.match(r"^(?:exam|dictation|memo)_(\d{2})(\d{2})(\d{2})_\d+$", stem)
     if m:
         yy, mm, dd = m.group(1), m.group(2), m.group(3)
         return f"20{yy}-{mm}-{dd}"
@@ -297,12 +310,23 @@ def bold_question_numbers_md(md_text: str) -> str:
 
 
 def bold_question_numbers_html(html: str) -> str:
-    """答题卡 HTML 表：首列题号加粗。"""
+    """答题卡 HTML 表 + 题块段落：题号加粗。"""
 
     def _bold_sheet_table(match: re.Match) -> str:
         return _SHEET_QNUM.sub(r'\1<strong class="q-num">\2</strong>', match.group(0))
 
-    return _SHEET_TABLE.sub(_bold_sheet_table, html)
+    html = _SHEET_TABLE.sub(_bold_sheet_table, html)
+    html = re.sub(
+        r"(<p[^>]*>)(\d+(?:\.\d+)?)(、)",
+        r'\1<strong class="q-num">\2\3</strong>',
+        html,
+    )
+    html = re.sub(
+        r"\*\*(\d+(?:\.\d+)?、)\*\*",
+        r'<strong class="q-num">\1</strong>',
+        html,
+    )
+    return html
 
 
 def _escape_html(text: str) -> str:
@@ -431,7 +455,7 @@ def md_to_pdf(md_path: str, pdf_path: str | None = None) -> str:
     html_doc = (
         f'<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">'
         f"<title>{_escape_html(page_title)}</title>"
-        f"<style>{PRINT_CSS}</style></head><body>{body}</body></html>"
+        f"<style>{build_print_css()}</style></head><body>{body}</body></html>"
     )
     fd, html_path = tempfile.mkstemp(suffix=".html", prefix="exam_print_")
     os.close(fd)
