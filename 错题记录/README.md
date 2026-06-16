@@ -1,4 +1,4 @@
-# 萌萌错题记录系统 (Sissy's Mistake Management System)
+# 错题记录系统 (Mistake Management System)
 
 > [!IMPORTANT]
 > 本系统采用标准化、数字化管理方式录入小升初错题。任何 AI 助理在操作前必须阅读本说明。

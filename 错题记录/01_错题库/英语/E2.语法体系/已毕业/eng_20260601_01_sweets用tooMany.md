@@ -32,7 +32,7 @@ variants:
 
 A. too many　B. too much　C. so many　D. so much
 
-**萌萌作答：** B ✗　**正确答案：** A
+**学生作答：** B ✗　**正确答案：** A
 
 ## 2. 错因分析
 * 核心错因：**[E2] 语法**。把可数名词 **sweets** 当成不可数，误选 **too much**；应配 **too many**。

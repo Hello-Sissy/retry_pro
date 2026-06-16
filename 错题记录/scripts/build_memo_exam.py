@@ -149,14 +149,14 @@ def main() -> None:
         "exam_type": "memo",
         "memo_id": stem,
         "date": today.isoformat(),
-        "title": f"萌萌 词语默写卷·{type_label}",
+        "title": f"学生 词语默写卷·{type_label}",
         "sections": [{"type": pool, "count": len(picked)} for pool, picked in sections],
         "完成日期": [],
         "answers": answers,
         "mapping": mapping,
     }
 
-    h1 = f"# 萌萌 词语默写卷 (ID: {stem.replace('_', '')})"
+    h1 = f"# 学生 词语默写卷 (ID: {stem.replace('_', '')})"
     content = f"{h1}\n\n{body}\n"
     post = frontmatter.Post(content, **meta)
     full_md = frontmatter.dumps(post)

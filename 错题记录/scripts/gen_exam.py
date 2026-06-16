@@ -2,7 +2,7 @@ import os
 import frontmatter
 import datetime
 
-# 获取当前脚本所在目录的父目录，即“萌萌错题记录”根目录
+# 获取当前脚本所在目录的父目录，即“错题记录”根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def generate_exam(subject, min_mastery=3, tag=None):
@@ -56,7 +56,7 @@ def generate_exam(subject, min_mastery=3, tag=None):
             f.write(f"  {num}: {qid}\n")
         f.write("---\n\n")
         
-        f.write(f"# 萌萌的 {subject} 专项冲刺卷\n")
+        f.write(f"# 学生的 {subject} 专项冲刺卷\n")
         f.write(f"> 生成日期：{datetime.date.today()} | 筛选标准：掌握度 <={min_mastery} | 标签：{tag if tag else '全部'}\n\n")
         f.write("---\n\n")
         

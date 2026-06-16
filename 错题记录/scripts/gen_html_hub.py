@@ -10,7 +10,7 @@ import markdown
 # ==========================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MISTAKE_ROOT = os.path.join(BASE_DIR, "01_错题库")
-OUTPUT_FILE = os.path.join(BASE_DIR, "萌萌智能错题看板.html")
+OUTPUT_FILE = os.path.join(BASE_DIR, "智能错题看板.html")
 
 def markdown_to_html(text):
     return markdown.markdown(text, extensions=['fenced_code', 'tables'])
@@ -76,7 +76,7 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>萌萌智能错题看板 - Premium</title>
+    <title>智能错题看板 - Premium</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -391,7 +391,7 @@ HTML_TEMPLATE = """
 
     <div class="main-content">
         <header>
-            <h1>你好，萌萌 👋</h1>
+            <h1>你好 👋</h1>
             <div class="user-badge">
                 <div class="avatar">M</div>
                 <span>Sissy Meng</span>
